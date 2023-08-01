@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Location;
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
 
