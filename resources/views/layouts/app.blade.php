@@ -18,7 +18,7 @@
             font-family: karla;
         }
     </style>
-
+    @livewireStyles
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -154,9 +154,11 @@
                 <a href="{{ route('terms-and-conditions') }}" class="uppercase px-3">Terms & Conditions</a>
                 <a href="{{ route('contact-us') }}" class="uppercase px-3">Contact Us</a>
             </div>
-            <div class="uppercase pb-6">&copy; myblog.com</div>
+            <div class="uppercase pb-6">
+                &copy; {{ $metaTitle ?: \App\Models\TextWidget::getTitle('header') }}
+            </div>
         </div>
     </footer>
-
+    @livewireScripts
 </body>
 </html>
