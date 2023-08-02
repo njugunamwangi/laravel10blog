@@ -13,6 +13,8 @@
                 <div>
                     {!! $post->title !!}
                 </div>
+
+                <livewire:upvote-downvote :post="$post" />
             </div>
         </article>
 
