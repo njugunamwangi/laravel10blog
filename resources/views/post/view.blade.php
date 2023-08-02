@@ -8,7 +8,8 @@
             <div class="bg-white flex flex-col justify-start p-6">
                 <p class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</p>
                 <p class="text-sm pb-8">
-                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>, Published on {{$post->getFormattedDate()}}
+                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>,
+                    Published on {{$post->getFormattedDate()}} | {{ $post->human_read_time }}
                 </p>
                 <div>
                     {!! $post->title !!}
