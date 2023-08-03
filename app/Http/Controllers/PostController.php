@@ -20,11 +20,11 @@ class PostController extends Controller
 
     public function home() : View {
         // latest posts
-        $latestPost = Post::where('active', '=', 1)
+        $latestPosts = Post::where('active', '=', 1)
             ->whereDate('published_at', '<', Carbon::now())
             ->orderBy('published_at', 'desc')
-            ->limit(1)
-            ->first();
+            ->limit(2)
+            ->get();
 
         // 3 most popular post based on upvotes
         $popularPosts = Post::query()
@@ -95,7 +95,7 @@ class PostController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(5);
 
-        return view('home', compact('latestPost', 'popularPosts'));
+        return view('home', compact('latestPosts', 'popularPosts', 'recommendedPosts', 'categories', 'posts'));
     }
     public function index() : View
     {

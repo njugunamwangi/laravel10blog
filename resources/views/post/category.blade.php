@@ -3,11 +3,12 @@
 ?>
 <x-app-layout :meta-title="$category->title" meta-description="By category">
     <section class="w-full md:w-2/3 flex flex-wrap justify-between ">
-        
-        @foreach($posts as $post)
-            <x-post-item :post="$post"></x-post-item>
-        @endforeach
 
+        <div class="grid grid-cols-2 gap-2 mb-4 justify-between">
+            @foreach($posts as $post)
+                <x-post-item :post="$post"></x-post-item>
+            @endforeach
+        </div>
         <!-- Pagination -->
         {{$posts->onEachSide(1)->links()}}
     </section>

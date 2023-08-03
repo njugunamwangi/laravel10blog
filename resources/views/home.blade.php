@@ -2,18 +2,24 @@
     /** @var $posts \Illuminate\Pagination\LengthAwarePaginator */
 ?>
 <x-app-layout meta-description="">
-    <div class="container mx-auto  py-6">
+    <div class="container mx-auto py-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Latest Post -->
+            <!-- Latest News -->
             <div class="col-span-2">
                 <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
                     Latest News
                 </h2>
 
-                <x-post-item :post="$latestPost"></x-post-item>
+                <div class="grid grid-cols-2 gap-2 mb-4 justify-between">
+                    @foreach($latestPosts as $post)
+                        <div>
+                            <x-post-item :post="$post"></x-post-item>
+                        </div>
+                    @endforeach
+                </div>
             </div>
 
-            <!-- Popular Post -->
+            <!-- Popular News -->
             <div>
                 <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
                     Popular News
@@ -42,18 +48,29 @@
             </div>
         </div>
 
-        <!-- Recommended Post -->
-        <div>
-            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                Recommended Posts
-            </h2>
-        </div>
+        @if(count($recommendedPosts) > 1)
+            <!-- Recommended News -->
+            <div>
+                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                    Recommended News
+                </h2>
+                <div class="grid grid-cols-3 gap-2 mb-4 justify-between">
+                    @foreach($recommendedPosts as $post)
+                        <div>
+                            <x-post-item :post="$post"></x-post-item>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
-        <!-- Latest categories -->
+        <!-- Recent categories -->
         <div>
             <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                Latest Categories
+                Recent Categories
             </h2>
+
+
         </div>
     </div>
 </x-app-layout>
