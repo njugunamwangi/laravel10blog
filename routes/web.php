@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', [PostController::class, 'home'])->name('home');
-Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/all-news', [PostController::class, 'index'])->name('all-news');
 
 // site pages
 Route::get('/about-us', [SiteController::class, 'about'])->name('about-us');

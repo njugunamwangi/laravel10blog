@@ -64,15 +64,22 @@
             </div>
         @endif
 
-        <!-- Recent categories -->
-        <div>
-            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                Recent Categories
-            </h2>
+        @foreach($categories as $category)
+            <div>
+                <div class="text-lg sm:text-xl font-bold text-blue-500 pb-1 border-b-2 border-blue-500 mb-3 flex justify-between">
+                    <div>
+                        <h2 class="uppercase">
+                            {{$category->title}}
+                        </h2>
+                    </div>
+                    <div class="text-sm">
+                        <a href="{{ route('by-category', $category) }}">
+                            Read more
+                        </a>
+                    </div>
+                </div>
 
-            @foreach($categories as $category)
                 <div>
-                    <h3 class="text-center font-bold uppercase text-xl">{{$category->title}}</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                         @foreach($category->posts()->limit(3)->get() as $post)
                             <div>
@@ -81,7 +88,7 @@
                         @endforeach
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 </x-app-layout>
