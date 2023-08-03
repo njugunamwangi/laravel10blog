@@ -74,7 +74,8 @@ class PostController extends Controller
         // show recent categories with their latest posts
         $categories = Category::query()
             ->with(['posts' => function($query) {
-                $query->orderByDesc('published_at')->limit(3);
+                $query->orderByDesc('published_at')
+                    ->limit(3);
             }])
             ->whereHas('posts', function($query) {
                 $query->where('active', '=', 1)
@@ -86,7 +87,7 @@ class PostController extends Controller
             ->leftJoin('posts', 'posts.id', '=','category_post.post_id')
             ->orderBy('max_date')
             ->groupBy('categories.id')
-            ->limit(5)
+            ->limit(3)
             ->get();
 
         $posts = Post::query()

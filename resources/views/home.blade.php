@@ -70,7 +70,18 @@
                 Recent Categories
             </h2>
 
-
+            @foreach($categories as $category)
+                <div>
+                    <h3 class="text-center font-bold uppercase text-xl">{{$category->title}}</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        @foreach($category->posts()->limit(3)->get() as $post)
+                            <div>
+                                <x-post-item :post="$post"></x-post-item>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </x-app-layout>
