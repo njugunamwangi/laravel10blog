@@ -29,7 +29,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', [PostController::class, 'home'])->name('home');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 // site pages
 Route::get('/about-us', [SiteController::class, 'about'])->name('about-us');

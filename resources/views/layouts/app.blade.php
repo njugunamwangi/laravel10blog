@@ -32,8 +32,8 @@
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     @foreach($locations as $location)
                         <li>
-                            <a 
-                            class="hover:text-gray-200 hover:underline px-4 {{ request('location')?->slug === $location->slug ? 'bg-white-600 text-black' : '' }}" 
+                            <a
+                            class="hover:text-gray-200 hover:underline px-4 {{ request('location')?->slug === $location->slug ? 'bg-white-600 text-black' : '' }}"
                             href="{{ route('by-location', $location) }}">
                                 {{ $location->title }}
                             </a>
@@ -59,7 +59,7 @@
         </div>
 
     </nav>
-    
+
     <!-- Topic Nav -->
     <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
         <div class="block sm:hidden">
@@ -72,10 +72,10 @@
             </a>
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-between text-sm font-bold uppercase mt-0 px-6 py-2">
+            <div class="w-full container mx-auto flex flex-wrap sm:flex-row items-center justify-between text-sm font-bold uppercase mt-0 px-6 py-2">
                 <div>
                     @foreach($categories as $category)
-                        <a href="{{ route('by-category', $category) }}" 
+                        <a href="{{ route('by-category', $category) }}"
                             class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">
                             {{ $category->title }}
                         </a>

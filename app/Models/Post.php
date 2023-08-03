@@ -41,8 +41,8 @@ class Post extends Model
         return $this->belongsToMany(Location::class);
     }
 
-    public function shortBody() : string {
-        return Str::words(strip_tags($this->body), 30);
+    public function shortBody($words = 30) : string {
+        return Str::words(strip_tags($this->body), $words);
     }
 
     public function getFormattedDate() {
