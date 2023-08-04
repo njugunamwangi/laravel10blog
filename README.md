@@ -1,10 +1,16 @@
 ## About Project
 
-Blog project built with the following core technologies
+Blog project built with the following 
+
+## Core Technologies
 
 - [Laravel](https://laravel.com/).
 - [Filamentphp Admin Dashboard](https://filamentphp.com/).
 - [Laravel Livewire](https://laravel-livewire.com/).
+
+## Plugins
+
+- [Spatie Roles & Permissions](https://spatie.be/).
 
 ## Javascript & CSS Frameworks
 

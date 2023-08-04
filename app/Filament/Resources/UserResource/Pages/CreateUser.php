@@ -4,6 +4,7 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
@@ -24,12 +25,11 @@ class CreateUser extends CreateRecord
         return $data;
     }
 
-    protected function handleRecordCreation(array $data): Model
+    protected function getCreatedNotification(): ?Notification
     {
-        /** @var \App\Models\User $user */
-        $user = parent::handleRecordCreation($data);
-        $user->assignRole('admin');
-
-        return $user;
+        return Notification::make()
+            ->success()
+            ->title('User created')
+            ->body('The user has been created successfully.');
     }
 }

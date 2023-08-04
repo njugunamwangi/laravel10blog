@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\TextWidgetResource\Pages;
 
 use App\Filament\Resources\TextWidgetResource;
+use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
@@ -13,5 +14,13 @@ class CreateTextWidget extends CreateRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    protected function getCreatedNotification(): ?Notification
+    {
+        return Notification::make()
+            ->success()
+            ->title('Text Widget created')
+            ->body('The text widget has been created successfully.');
     }
 }

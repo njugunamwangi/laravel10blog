@@ -38,7 +38,7 @@ class PostController extends Controller
             ->whereDate('published_at', '<', Carbon::now())
             ->orderByDesc('upvote_count')
             ->groupBy('posts.id')
-            ->limit(5)
+            ->limit(6)
             ->get();
 
         // if authorized show recommended posts based on upvotes
