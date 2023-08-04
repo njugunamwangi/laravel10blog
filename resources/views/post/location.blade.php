@@ -1,7 +1,7 @@
 <?php
     /** @var $posts \Illuminate\Pagination\LengthAwarePaginator */
 ?>
-<x-app-layout :meta-title="$location->title" meta-description="By location">
+<x-app-layout :meta-title="$location->title .' | '. \App\Models\TextWidget::getTitle('header')" meta-description="By location">
     <section class="w-full md:w-2/3 flex flex-wrap justify-between ">
 
         <div class="grid grid-cols-2 gap-2 mb-4 justify-between">

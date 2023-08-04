@@ -57,14 +57,14 @@ class PostResource extends Resource
                 Card::make()
                     ->schema([
                         Forms\Components\FileUpload::make('thumbnail'),
-                        Forms\Components\Select::make('category_id')
-                            ->multiple()
+                        Forms\Components\CheckboxList::make('category_id')
                             ->relationship('categories', 'title')
-                            ->required(),
-                        Forms\Components\Select::make('location_id')
-                            ->multiple()
+                            ->required()
+                            ->searchable(),
+                        Forms\Components\CheckboxList::make('location_id')
                             ->relationship('locations', 'title')
-                            ->required(),
+                            ->required()
+                            ->searchable(),
                     ])->columnSpan(4)
             ])->columns(12);
     }

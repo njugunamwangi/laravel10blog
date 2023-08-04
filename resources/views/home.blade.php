@@ -1,7 +1,7 @@
 <?php
     /** @var $posts \Illuminate\Pagination\LengthAwarePaginator */
 ?>
-<x-app-layout meta-description="">
+<x-app-layout meta-title="">
     <div class="container mx-auto py-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Latest News -->
