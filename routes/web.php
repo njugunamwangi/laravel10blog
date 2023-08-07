@@ -31,6 +31,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/all-news', [PostController::class, 'index'])->name('all-news');
+Route::get('/search', [PostController::class, 'search'])->name('search');
 
 // site pages
 Route::get('/about-us', [SiteController::class, 'about'])->name('about-us');

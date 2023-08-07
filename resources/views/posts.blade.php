@@ -1,5 +1,5 @@
 <?php
-    /** @var $posts \Illuminate\Pagination\LengthAwarePaginator */
+/** @var $posts \Illuminate\Pagination\LengthAwarePaginator */
 ?>
 <x-app-layout meta-description="">
     <section class="w-full md:w-2/3 flex flex-wrap justify-between ">

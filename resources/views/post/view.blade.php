@@ -12,7 +12,7 @@
                     Published on {{$post->getFormattedDate()}} | {{ $post->human_read_time }}
                 </p>
                 <div>
-                    {!! $post->title !!}
+                    {!! $post->body !!}
                 </div>
 
                 <livewire:upvote-downvote :post="$post" />
